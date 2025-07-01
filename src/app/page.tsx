@@ -23,14 +23,18 @@ function HomeClient() {
   const [loading, setLoading] = useState(true);
   const { announcement } = useSite();
 
-  const [showAnnouncement, setShowAnnouncement] = useState(() => {
-    // 检查本地存储中是否已记录弹窗显示状态
+  // 初始默认不显示，待客户端判断
+  const [showAnnouncement, setShowAnnouncement] = useState(false);
+
+  // 客户端挂载后检查 localStorage 决定是否弹窗
+  useEffect(() => {
+    if (!announcement) return;
+    if (typeof window === 'undefined') return;
     const hasSeenAnnouncement = localStorage.getItem('hasSeenAnnouncement');
     if (hasSeenAnnouncement !== announcement) {
-      return true;
+      setShowAnnouncement(true);
     }
-    return !hasSeenAnnouncement && announcement; // 未记录且有公告时显示弹窗
-  });
+  }, [announcement]);
 
   // 收藏夹数据
   type FavoriteItem = {

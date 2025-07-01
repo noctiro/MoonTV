@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 
 import './globals.css';
 
-import AuthProvider from '../components/AuthProvider';
 import { SiteProvider } from '../components/SiteProvider';
 import { ThemeProvider } from '../components/ThemeProvider';
 
@@ -45,7 +44,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SiteProvider siteName={siteName} announcement={announcement}>
-            <AuthProvider>{children}</AuthProvider>
+            {children}
           </SiteProvider>
         </ThemeProvider>
       </body>
