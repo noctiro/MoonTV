@@ -8,6 +8,7 @@ interface DemoCardProps {
   title: string;
   poster: string;
   rate?: string;
+  type?: string;
 }
 
 function SearchCircle({
@@ -54,12 +55,12 @@ function SearchCircle({
   );
 }
 
-const DemoCard = ({ id, title, poster, rate }: DemoCardProps) => {
+const DemoCard = ({ id, title, poster, rate, type }: DemoCardProps) => {
   const [hover, setHover] = useState(false);
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/aggregate?q=${encodeURIComponent(title)}`);
+    router.push(`/aggregate?q=${encodeURIComponent(title)}&type=${type}`);
   };
 
   return (
@@ -79,7 +80,7 @@ const DemoCard = ({ id, title, poster, rate }: DemoCardProps) => {
         />
         {/* 评分徽章 */}
         {rate && (
-          <div className='absolute top-2 right-2 min-w-[1.25rem] h-4 sm:min-w-[1.5rem] sm:h-6 bg-pink-500 rounded-full flex items-center justify-center px-1'>
+          <div className='absolute top-2 right-2 min-w-[1.25rem] h-4 w-4 sm:h-7 sm:w-7 sm:min-w-[1.5rem] bg-pink-500 rounded-full flex items-center justify-center px-1'>
             <span className='text-white text-[0.5rem] sm:text-xs font-bold leading-none'>
               {rate}
             </span>
@@ -107,7 +108,7 @@ const DemoCard = ({ id, title, poster, rate }: DemoCardProps) => {
           onClick={(e) => e.stopPropagation()}
           className='absolute top-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200'
         >
-          <div className='w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-600/60 flex items-center justify-center transition-all duration-200 hover:bg-green-500 hover:scale-110'>
+          <div className='w-4 h-4 sm:w-7 sm:h-7 rounded-full bg-green-500 flex items-center justify-center transition-all duration-200 hover:scale-110'>
             <LinkIcon className='w-4 h-4 text-white' strokeWidth={2} />
           </div>
         </a>
