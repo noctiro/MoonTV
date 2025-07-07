@@ -76,6 +76,18 @@
     "ikun": {
       "api": "https://ikunzyapi.com/api.php/provide/vod",
       "name": "iKun资源"
+    },
+    "lzizy": {
+      "api": "https://lzizy.com/api.php/provide/vod",
+      "name": "墨子资源"
+    },
+    "hongniu": {
+      "api": "https://www.hongniuzy3.com/api.php/provide/vod",
+      "name": "红牛资源"
+    },
+    "ip1": {
+      "api": "http://36.48.140.74:800/api.php/provide/vod",
+      "name": "私一资源"
     }
   }
 }
