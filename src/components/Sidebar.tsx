@@ -3,7 +3,6 @@
 import {
   Clover,
   Film,
-  Github,
   Home,
   Menu,
   MessageCircleHeart,
